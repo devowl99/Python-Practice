@@ -1,14 +1,13 @@
-import sys
-input = sys.stdin.readline
+word = input()
+change = []
 
-n = int(input())
-for i in range(n):
-    word = input().strip()
-    
-wlen = len(word)
-gw = 0
+for i in word:
+    if i >= 'a' and i <= 'z':
+        change.append(i.upper())
+    else:
+        change.append(i.lower())
 
-for i in range(wlen-2):
-     for j in range(i+2, wlen):
-        if word(i) != word(j):
-            gw += 1
+print(''.join(change))
+
+# ord() : 문자 -> ASCII 변환
+# chr() : ASCII -> 문자 변환
