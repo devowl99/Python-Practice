@@ -1,20 +1,29 @@
-import sys
-input = sys.stdin.readline
-
-txt = input()
-stack = []
-
-for i in txt:
-    if i == '.':
+while True:
+    txt = input()
+    if txt == '.':
         break
-    elif i == '(' or i == '[':
-        stack.append(i)
-
-    if stack[-1] == '(' and i == ')':
-        stack.pop()
-        print('yes')
-    elif stack[-1] == '[' and i == ']':
-        stack.pop()
-        print('yes')
     
-    # 미완(과제)
+    is_balanced = True
+    stack = []
+
+    for i in txt:
+        if i == '(' or i == '[':
+            stack.append(i)
+        elif i == ')':
+            if stack and stack[-1] == '(':
+                stack.pop()
+            else:
+                stack.append(i)
+        elif i == ']':
+            if stack and stack[-1] == '[':
+                stack.pop()
+            else:
+                stack.append(i)
+
+    if len(stack) != 0:
+        is_balanced = False
+
+    if is_balanced:
+        print('yes')
+    else:
+        print('no')
