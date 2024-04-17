@@ -1,4 +1,3 @@
-# 왜 안될까
 n = int(input())
 word = []
 gw = 0
