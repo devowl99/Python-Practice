@@ -1,17 +1,11 @@
 n, k = map(int, input().split())
 
-people = [1 for _ in range(n)]
-for num in range(1, n):
-    people[num] = num + 1
-
+people = list(range(1, n+1))
 target = 0
-plen = n
+
 print('<', end='')
-while True:
-    target += k
-    if target > plen:
-        plen = len(people)
-        target %= plen
+while people:
+    target = (target + k - 1) % len(people)
     
     print(people.pop(target), end = '')
     
